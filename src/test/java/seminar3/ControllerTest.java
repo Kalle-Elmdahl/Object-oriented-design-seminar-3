@@ -23,6 +23,12 @@ public class ControllerTest {
         PrintStream inMemSysOut = new PrintStream(printOutBuffer);
         originalSysOut = System.out;
         System.setOut(inMemSysOut);
+        
+        EASHandler eas = new EASHandler();
+        EISHandler eis = new EISHandler();
+        Printer printer = new Printer();
+
+        instance = new Controller(eis, eas, printer);
 
     }
 
@@ -36,11 +42,6 @@ public class ControllerTest {
 
     @Test
     public void testControllerHasStarted() {
-        EASHandler eas = new EASHandler();
-        EISHandler eis = new EISHandler();
-        Printer printer = new Printer();
-
-        instance = new Controller(eis, eas, printer);
         String printOut = this.printOutBuffer.toString();
         String expectedOutput = "success";
         assertTrue("Controller did not start correctly", printOut.contains(expectedOutput));
