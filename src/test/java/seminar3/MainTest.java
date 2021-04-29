@@ -25,7 +25,17 @@ public class MainTest {
 
     @After
     public void tearDown() {
-
         printOutBuffer = null;
+        System.setOut(originalSysOut);
+    }
+
+    @Test
+    public void testUIHasStarted() {
+        String[] args = null;
+        Main.main(args);
+        String printOut = this.printOutBuffer.toString();
+        String expectedOutput = "started";
+        assertTrue("UI did not start correctly", printOut.contains(expectedOutput));
+    }
       
 }
