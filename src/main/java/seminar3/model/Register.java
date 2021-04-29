@@ -20,4 +20,12 @@ public class Register {
     public double getAmount() {
         return amount;
     }
+
+    
+    /** 
+     * @param amount
+     */
+    public void updateAmount(double amount) {
+        this.amount += amount;
+    }
 }

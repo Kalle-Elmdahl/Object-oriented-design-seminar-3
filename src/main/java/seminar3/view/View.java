@@ -24,5 +24,7 @@ public class View {
     public void runFakeExecution() {
         contr.startSale();
         System.out.println("A new sale has been started.");
+        contr.enterItem("This is an idenfier");
+        contr.pay(500, "SEK");
     }
 }
