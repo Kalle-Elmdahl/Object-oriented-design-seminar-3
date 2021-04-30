@@ -35,8 +35,9 @@ public class Sale {
 
     
     /** 
-     * @param idenfier
-     * @return SaleInfoDTO
+     * This function increases the quantity of a matching identifier
+     * @param idenfier the identifier to be matched
+     * @return SaleInfoDTO Information about the sale to be sent back to the view.
      */
     public SaleInfoDTO addDuplicate(String idenfier) {
         for(Item item : items) {
@@ -50,8 +51,9 @@ public class Sale {
 
     
     /** 
-     * @param itemDTO
-     * @return SaleInfoDTO
+     * This function adds a new item to the sale's item list
+     * @param itemDTO the item to be added
+     * @return SaleInfoDTO information to be shown in th view.
      */
     public SaleInfoDTO addItem(ItemDTO itemDTO) {
         Item item = new Item(itemDTO);
@@ -63,8 +65,9 @@ public class Sale {
 
     
     /** 
-     * @param idenfier
-     * @return boolean
+     * This function checks if an item with the same identifier already exists in the scanned items list
+     * @param idenfier the itentifier to be matched
+     * @return boolean true if match was found
      */
     public boolean isDuplicate(String idenfier) {
         for(Item item : items)
@@ -76,7 +79,8 @@ public class Sale {
 
     
     /** 
-     * @return SaleDTO
+     * This function converts the sale to a SaleDTO to be sent to external systems
+     * @return SaleDTO the DTO version of the sale
      */
     public SaleDTO convertToDTO() {
         return new SaleDTO(this.saleTime, this.items, this.totalPrice, this.totalVAT);
@@ -84,9 +88,10 @@ public class Sale {
 
     
     /** 
-     * @param payment
-     * @param sale
-     * @return Receipt
+     * This function completes the sale
+     * @param payment the payment made by the customer
+     * @param sale the sale 
+     * @return Receipt the generated receipt
      */
     public Receipt complete(PaymentDTO payment, SaleDTO sale) {
         return new Receipt(payment, sale);
@@ -94,15 +99,20 @@ public class Sale {
 
     
     /** 
-     * @return ArrayList<Item>
+     * Gets the items scanned in the sale
+     * @return ArrayList<Item> the items
      */
     public ArrayList<Item> getItems() {
-        return this.items;
+        ArrayList<Item> items = new ArrayList<Item>();
+        for(Item item : this.items)
+            items.add(new Item(item));
+        return items;
     }
 
     
     /** 
-     * @return double
+     * Gets the total price of the sale
+     * @return double total price
      */
     public double getTotalPrice() {
         return this.totalPrice;
@@ -110,7 +120,8 @@ public class Sale {
 
     
     /** 
-     * @return double
+     * Gets the total VAT of the sale
+     * @return double the total VAT
      */
     public double getTotalVAT() {
         return this.totalVAT;

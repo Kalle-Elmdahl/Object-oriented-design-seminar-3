@@ -15,7 +15,7 @@ public class Receipt {
     private double totalVAT;
     private double amountPaid;
     private String currency;
-    private String storeInformation = "This is some information about the store";
+    private String storeInformation = "ICA Brottbyhallen. Handla online på ICA.se - Här finns nya fantastiska erbjudanden varje dag!";
 
     public Receipt(PaymentDTO payment, SaleDTO sale) {
         this.timeOfSale = sale.getTime();
@@ -30,7 +30,8 @@ public class Receipt {
 
     
     /** 
-     * @return LocalTime
+     * This function returns the time when the sale was started.
+     * @return LocalTime, The time
      */
     public LocalTime getTimeOfSale() {
         return this.timeOfSale;
@@ -38,15 +39,20 @@ public class Receipt {
 
     
     /** 
-     * @return ArrayList<Item>
+     * Gets the purchased items in the sale
+     * @return ArrayList<Item> The items
      */
     public ArrayList<Item> getItems() {
-        return this.items;
+        ArrayList<Item> items = new ArrayList<Item>();
+        for(Item item : this.items)
+            items.add(new Item(item));
+        return items;
     }
 
     
     /** 
-     * @return double
+     * Gets the totalprice
+     * @return double the price
      */
     public double getTotalPrice() {
         return this.totalPrice;
@@ -54,7 +60,8 @@ public class Receipt {
 
     
     /** 
-     * @return double
+     * This function returns the totalVAT.
+     * @return double The totalVAT
      */
     public double getTotalVAT() {
         return this.totalVAT;
@@ -62,7 +69,8 @@ public class Receipt {
 
     
     /** 
-     * @return double
+     * This function returns the amountPaid.
+     * @return double The amountPaid
      */
     public double getAmountPaid() {
         return this.amountPaid;
@@ -70,7 +78,8 @@ public class Receipt {
 
     
     /** 
-     * @return String
+     * This function returns the currency.
+     * @return String The currency
      */
     public String getCurrency() {
         return this.currency;
@@ -78,7 +87,8 @@ public class Receipt {
 
     
     /** 
-     * @return String
+     * Gets Information about the store
+     * @return String the information
      */
     public String getStoreInformation() {
         return this.storeInformation;

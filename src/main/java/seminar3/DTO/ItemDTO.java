@@ -1,5 +1,9 @@
 package seminar3.DTO;
 
+
+/**
+ * This is a data transfer object class used to send items.
+ */
 public class ItemDTO {
     String description;
     double VAT;
@@ -7,7 +11,14 @@ public class ItemDTO {
     String name;
     String identifier;
 
-
+    /**
+     * This function creates a new instance of an item data transfer object
+     * @param description A description of the item
+     * @param VAT The item's VAT
+     * @param price The pirce of the item
+     * @param name The item's name
+     * @param identifier The item's identifier
+     */
     public ItemDTO(String description, double VAT, double price, String name, String identifier) {
         this.description = description;
         this.VAT = VAT;
@@ -16,9 +27,10 @@ public class ItemDTO {
         this.identifier = identifier;
     }
 
-    
+
     /** 
-     * @return String
+     * This function returns the item's description
+     * @return String the description
      */
     public String getDescription() {
         return this.description;
@@ -26,7 +38,8 @@ public class ItemDTO {
 
     
     /** 
-     * @return double
+     * This function returns the item's VAT
+     * @return double the VAT
      */
     public double getVAT() {
         return this.VAT;
@@ -34,7 +47,8 @@ public class ItemDTO {
 
     
     /** 
-     * @return double
+     * This function returns the item's price
+     * @return double the price
      */
     public double getPrice() {
         return this.price;
@@ -42,7 +56,8 @@ public class ItemDTO {
 
     
     /** 
-     * @return String
+     * This function returns the item's name
+     * @return String the name
      */
     public String getName() {
         return this.name;
@@ -50,7 +65,8 @@ public class ItemDTO {
 
     
     /** 
-     * @return String
+     * This function returns the item's identifier
+     * @return String the identifier
      */
     public String getIdentifier() {
         return this.identifier;

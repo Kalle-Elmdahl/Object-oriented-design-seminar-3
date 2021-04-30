@@ -2,6 +2,9 @@ package seminar3.model;
 
 import seminar3.DTO.ItemDTO;
 
+/**
+ * 
+ */
 public class Item {
     String name;
     double VAT;
@@ -10,18 +13,36 @@ public class Item {
     int quantity;
     String identifier;
 
+    /**
+     * This function creates a new instance of the Item class.
+     * @param item the item DTO to be converted.
+     */
     public Item(ItemDTO item) {
-        this.description = item.getDescription();
-        this.VAT = item.getVAT();
-        this.price = item.getPrice();
-        this.name = item.getName();
-        this.identifier = item.getIdentifier();
+        description = item.getDescription();
+        VAT = item.getVAT();
+        price = item.getPrice();
+        name = item.getName();
+        identifier = item.getIdentifier();
         quantity = 1;
+    }
+
+    /**
+     * This is a secondary constructor used for creating copies of an item.
+     * @param item the item to be copied.
+     */
+    public Item(Item item) {
+        description = item.getDescription();
+        VAT = item.getVAT();
+        price = item.getPrice();
+        name = item.getName();
+        identifier = item.getIdentifier();
+        quantity = item.getQuantity();
     }
 
     
     /** 
-     * @return String
+     * This function returns the name of the item
+     * @return String the name
      */
     public String getName() {
         return this.name;
@@ -29,7 +50,8 @@ public class Item {
 
     
     /** 
-     * @return double
+     * This function returns the VAT of the item
+     * @return double the VAT
      */
     public double getVAT() {
         return this.VAT;
@@ -37,7 +59,8 @@ public class Item {
 
     
     /** 
-     * @return String
+     * This function returns the description of the item
+     * @return String the description
      */
     public String getDescription() {
         return this.description;
@@ -45,7 +68,8 @@ public class Item {
 
     
     /** 
-     * @return double
+     * This function returns the price of the item
+     * @return double the price
      */
     public double getPrice() {
         return this.price;
@@ -53,19 +77,24 @@ public class Item {
 
     
     /** 
-     * @return int
+     * This function returns the quantity of the item
+     * @return int the quantity
      */
     public int getQuantity() {
         return this.quantity;
     }
 
+    /**
+     * Increses the quantity of the item 
+     */
     public void increaseQuantity() {
         quantity += 1;
+
     }
 
-    
     /** 
-     * @return String
+     * This function returns the identifier of the item
+     * @return String the identifier
      */
     public String getIdentifier() {
         return this.identifier;

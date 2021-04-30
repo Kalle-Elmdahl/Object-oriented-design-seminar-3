@@ -42,8 +42,9 @@ public class Controller {
     }
     
     /** 
-     * @param identifier
-     * @return SaleInfoDTO
+     * Adds an item to a sale.
+     * @param identifier The item's identifier. This must be valid. Invalid identifiers are not handled
+     * @return SaleInfoDTO Information to be shown on the screen in the view
      */
     public SaleInfoDTO enterItem(String identifier) {
         if(sale.isDuplicate(identifier))
@@ -55,9 +56,10 @@ public class Controller {
 
     
     /** 
-     * @param amount
-     * @param currency
-     * @return double
+     * Handles a payment. This function also completes the sale and updates external systems.
+     * @param amount the amount the customer has paid
+     * @param currency the currency the customer paid in.
+     * @return double the amount of change the cashier should give.
      */
     public double pay(double amount, String currency) {
         PaymentDTO payment = new PaymentDTO(amount, currency);
@@ -69,7 +71,8 @@ public class Controller {
         eas.registerPayment(payment, sale);
         eis.updateInventory(sale);
         printer.printReceipt(receipt);
-        return payment.getAmount() - sale.getTotalPrice();
+        double change = payment.getAmount() - sale.getTotalPrice();
+        return change;
     }
     
 }

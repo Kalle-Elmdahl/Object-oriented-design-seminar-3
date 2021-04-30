@@ -3,7 +3,7 @@ package seminar3.DTO;
 import seminar3.model.Item;
 
 /**
- * This is a DTO class used for transfering information about the lastest scanned item
+ * This is a data transfer object used for transfering information about the lastest scanned item
  */
 public class SaleInfoDTO {
     String currentItemDescription;
@@ -11,6 +11,11 @@ public class SaleInfoDTO {
     String currentItemName;
     double runningTotal;
     
+    /**
+     * This function creates a new instance of a sale info data transfer object
+     * @param item The item that was scanned last
+     * @param runningTotal the total price of all the scanned item
+     */
     public SaleInfoDTO(Item item, double runningTotal) {
         currentItemDescription = item.getDescription();
         currentItemPrice = item.getPrice();
@@ -20,7 +25,8 @@ public class SaleInfoDTO {
 
     
     /** 
-     * @return String
+     * This function gets the description of the last scanned item
+     * @return String the description
      */
     public String getCurrentItemDescription() {
         return this.currentItemDescription;
@@ -28,7 +34,8 @@ public class SaleInfoDTO {
 
     
     /** 
-     * @return double
+     * This function gets the price of the last scanned item
+     * @return double the price
      */
     public double getCurrentItemPrice() {
         return this.currentItemPrice;
@@ -36,9 +43,18 @@ public class SaleInfoDTO {
 
     
     /** 
-     * @return String
+     * This function gets the name of the last scanned item
+     * @return String the name
      */
     public String getCurrentItemName() {
         return this.currentItemName;
+    }
+
+    /**
+     * This function gets te total price of all the scanned items
+     * @return double the running total
+     */
+    public double getRunningTotal() {
+        return this.runningTotal;
     }
 }

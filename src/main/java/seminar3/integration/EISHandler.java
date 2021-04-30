@@ -8,8 +8,9 @@ import seminar3.DTO.*;
 public class EISHandler {
     
     /** 
-     * @param identifier
-     * @return ItemDTO
+     * This function gets the correct item from the external inventory system based on an idenfier
+     * @param identifier the item's identifier
+     * @return ItemDTO the found item
      */
     public ItemDTO findItem(String identifier) {
         return new ItemDTO("Ingredienser\nKycklingbröstfilé (100%)\n\nFörvaring\nFörvaras vid högst 4°C\n\nÖvrigt\nEAN kod: 2307111100000", 12, 59.4, "Kycklingfilé Tunnskivad", "2307111100000");
@@ -17,7 +18,8 @@ public class EISHandler {
 
     
     /** 
-     * @param sale
+     * The function updates the inventory based on the items sold in a sale
+     * @param sale the completed sale in a data transfer object
      */
     public void updateInventory(SaleDTO sale) {
         System.out.println("updating inventory");

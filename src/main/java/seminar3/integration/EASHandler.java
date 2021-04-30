@@ -8,12 +8,11 @@ import seminar3.DTO.*;
 public class EASHandler {
     
     /** 
-     * @param payment
-     * @param sale
+     * This registers a payment and a sale in the accounting system
+     * @param payment The payment made by the customer
+     * @param sale The sale containing items and date 
      */
     public void registerPayment(PaymentDTO payment, SaleDTO sale) {
         System.out.println("Regestering payemnt");
     }
-
-    
 }
