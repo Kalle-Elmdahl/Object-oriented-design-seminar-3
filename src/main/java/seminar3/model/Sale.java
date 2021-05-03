@@ -43,6 +43,7 @@ public class Sale {
         for(Item item : items) {
             if(item.getIdentifier().equals(idenfier)) {
                 item.increaseQuantity();
+                updateRunningTotal();
                 return new SaleInfoDTO(item, this.totalPrice);
             }
         }
@@ -59,6 +60,8 @@ public class Sale {
         Item item = new Item(itemDTO);
         items.add(item);
         updateRunningTotal();
+
+        System.out.println(items.get(0).getIdentifier());
 
         return new SaleInfoDTO(item, this.totalPrice);
     }

@@ -1,4 +1,4 @@
-package seminar3;
+package seminar3.Startup;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -6,44 +6,36 @@ import java.io.PrintStream;
 import org.junit.Before;
 import org.junit.After;
 import org.junit.Test;
-
-import seminar3.controller.Controller;
-import seminar3.integration.*;
-
 import static org.junit.Assert.assertTrue;
 
-public class ControllerTest {
-    private Controller instance;
+import seminar3.startup.Main;
+
+public class MainTest {
     private ByteArrayOutputStream printOutBuffer;
     private PrintStream originalSysOut;
 
     @Before
     public void setUp() {
+
         printOutBuffer = new ByteArrayOutputStream();
         PrintStream inMemSysOut = new PrintStream(printOutBuffer);
         originalSysOut = System.out;
         System.setOut(inMemSysOut);
-        
-        EASHandler eas = new EASHandler();
-        EISHandler eis = new EISHandler();
-        Printer printer = new Printer();
-
-        instance = new Controller(eis, eas, printer);
-
     }
 
     @After
     public void tearDown() {
         printOutBuffer = null;
         System.setOut(originalSysOut);
-
-        instance = null;
     }
 
     @Test
-    public void testControllerHasStarted() {
+    public void testUIHasStarted() {
+        String[] args = null;
+        Main.main(args);
         String printOut = this.printOutBuffer.toString();
-        String expectedOutput = "success";
-        assertTrue("Controller did not start correctly", printOut.contains(expectedOutput));
+        String expectedOutput = "started";
+        assertTrue("UI did not start correctly", printOut.contains(expectedOutput));
     }
+      
 }

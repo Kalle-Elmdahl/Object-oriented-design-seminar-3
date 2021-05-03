@@ -9,6 +9,7 @@ public class SaleInfoDTO {
     String currentItemDescription;
     double currentItemPrice;
     String currentItemName;
+    int currentItemQuantity;
     double runningTotal;
     
     /**
@@ -20,6 +21,7 @@ public class SaleInfoDTO {
         currentItemDescription = item.getDescription();
         currentItemPrice = item.getPrice();
         currentItemName = item.getName();
+        currentItemQuantity = item.getQuantity();
         this.runningTotal = runningTotal;
     }
 
@@ -48,6 +50,15 @@ public class SaleInfoDTO {
      */
     public String getCurrentItemName() {
         return this.currentItemName;
+    }
+
+    
+    /** 
+     * This function gets the quantity of the last scanned item
+     * @return int the quantity
+     */
+    public int getCurrentItemQuantity() {
+        return this.currentItemQuantity;
     }
 
     /**
