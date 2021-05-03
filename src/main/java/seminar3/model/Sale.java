@@ -61,8 +61,6 @@ public class Sale {
         items.add(item);
         updateRunningTotal();
 
-        System.out.println(items.get(0).getIdentifier());
-
         return new SaleInfoDTO(item, this.totalPrice);
     }
 

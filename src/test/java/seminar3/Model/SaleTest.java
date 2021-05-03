@@ -58,4 +58,13 @@ public class SaleTest {
         boolean isDuplicate = instance.isDuplicate("Not the same");
         assertTrue("is duplicate is not working", !isDuplicate);
     }
+
+    @Test
+    public void testCalculationOfTotalPrice() {
+        instance.addItem(new ItemDTO("Test item desciption", 1, 10, "Test", "Identifier1"));
+        instance.addItem(new ItemDTO("Test item desciption", 1, 25, "Test", "Identifier2"));
+        instance.addDuplicate("Identifier2");
+        double totalPrice = instance.getTotalPrice();
+        assertEquals("total price was not calculated correcly", 10 + 25 * 2, totalPrice, .01);
+    }
 }
