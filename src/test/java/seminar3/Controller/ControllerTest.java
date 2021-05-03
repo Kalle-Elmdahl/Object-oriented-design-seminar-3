@@ -66,4 +66,12 @@ public class ControllerTest {
         int quantity = secondOfSame.getCurrentItemQuantity();
         assertEquals("Add duplicate is not working", 2, quantity);
     }
+
+    @Test
+    public void checkIfChangeIsCalculatedCorrectly() {
+        instance.startSale();
+        instance.enterItem("identifier1");
+        double change = instance.pay(90, "SEK");
+        assertEquals("Calculation of change is not working", 90 - 59.4, change, .01);
+    }
 }

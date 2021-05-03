@@ -1,7 +1,5 @@
 package seminar3.Model;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 import java.util.ArrayList;
 
 import org.junit.Before;
@@ -17,25 +15,14 @@ import static org.junit.Assert.assertTrue;
 
 public class SaleTest {
     private Sale instance;
-    private ByteArrayOutputStream printOutBuffer;
-    private PrintStream originalSysOut;
 
     @Before
     public void setUp() {
-        printOutBuffer = new ByteArrayOutputStream();
-        PrintStream inMemSysOut = new PrintStream(printOutBuffer);
-        originalSysOut = System.out;
-        System.setOut(inMemSysOut);
-
         instance = new Sale();
-
     }
 
     @After
     public void tearDown() {
-        printOutBuffer = null;
-        System.setOut(originalSysOut);
-
         instance = null;
     }
 

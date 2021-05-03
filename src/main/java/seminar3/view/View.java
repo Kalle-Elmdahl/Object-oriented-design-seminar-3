@@ -25,6 +25,8 @@ public class View {
         contr.startSale();
         System.out.println("A new sale has been started.");
         contr.enterItem("identifier1");
+        System.out.println("Added an item with identifier: identifier1");
         contr.pay(500, "SEK");
+        System.out.println("A payment of 500 SEK was made");
     }
 }
