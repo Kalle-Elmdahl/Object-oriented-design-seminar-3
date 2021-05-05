@@ -33,7 +33,7 @@ public class Receipt {
      * This function returns the time when the sale was started.
      * @return LocalTime, The time
      */
-    public LocalTime getTimeOfSale() {
+    public LocalTime getTime() {
         return this.timeOfSale;
     }
 

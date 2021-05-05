@@ -64,7 +64,7 @@ public class ControllerTest {
         instance.enterItem(identifier);
         SaleInfoDTO secondOfSame = instance.enterItem(identifier);
         int quantity = secondOfSame.getCurrentItemQuantity();
-        assertEquals("Add duplicate is not working", 2, quantity);
+        assertEquals("Add Multiple of same item is not working", 2, quantity);
     }
 
     @Test

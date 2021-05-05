@@ -70,7 +70,9 @@ public class Controller {
 
         eas.registerPayment(payment, sale);
         eis.updateInventory(sale);
+
         printer.printReceipt(receipt);
+        
         double change = payment.getAmount() - sale.getTotalPrice();
         return change;
     }
