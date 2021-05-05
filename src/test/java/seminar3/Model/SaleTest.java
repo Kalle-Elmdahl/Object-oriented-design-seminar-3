@@ -88,8 +88,8 @@ public class SaleTest {
             );
 
         
-        assertEquals("Sale was not converted to DTO successfully", instance.getTotalPrice(), convertedInstance.getTotalPrice(), .01);
-        assertEquals("Sale was not converted to DTO successfully", instance.getTotalVAT(), convertedInstance.getTotalVAT(), .01);
+        assertEquals("Sale was not converted to DTO successfully (totalPrice)", instance.getTotalPrice(), convertedInstance.getTotalPrice(), .01);
+        assertEquals("Sale was not converted to DTO successfully (totalVAT)", instance.getTotalVAT(), convertedInstance.getTotalVAT(), .01);
    } 
 
    @Test
