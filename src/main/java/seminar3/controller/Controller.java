@@ -80,6 +80,8 @@ public class Controller {
         eis.updateInventory(sale);
 
         printer.printReceipt(receipt);
+
+        this.sale = null;
     }
     
 }
