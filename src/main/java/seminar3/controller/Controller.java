@@ -64,17 +64,22 @@ public class Controller {
     public double pay(double amount, String currency) {
         PaymentDTO payment = new PaymentDTO(amount, currency);
         SaleDTO sale = this.sale.convertToDTO();
+
+        handleCompleteSale(payment, sale);
+        
+        double change = payment.getAmount() - sale.getTotalPrice();
+        return change;
+    }
+
+    private void handleCompleteSale(PaymentDTO payment, SaleDTO sale) {
         Receipt receipt = this.sale.complete(payment, sale);
 
-        register.updateAmount(amount);
+        register.updateAmount(payment.getAmount());
 
         eas.registerPayment(payment, sale);
         eis.updateInventory(sale);
 
         printer.printReceipt(receipt);
-        
-        double change = payment.getAmount() - sale.getTotalPrice();
-        return change;
     }
     
 }
